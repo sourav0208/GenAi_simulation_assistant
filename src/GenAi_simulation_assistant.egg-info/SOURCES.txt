@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.py
+src/GenAi_simulation_assistant.egg-info/PKG-INFO
+src/GenAi_simulation_assistant.egg-info/SOURCES.txt
+src/GenAi_simulation_assistant.egg-info/dependency_links.txt
+src/GenAi_simulation_assistant.egg-info/top_level.txt
+src/config/__init__.py
+src/config/schema.py
+src/parsing/__init__.py
+src/parsing/command_parser.py
+src/runners/__init__.py
+src/runners/fem_adapter.py
+src/runners/pinn_adapter.py
+src/runners/simulation_runner.py
+tests/test_command_parser.py

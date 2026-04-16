@@ -1,5 +1,5 @@
 import numpy as np
-from mesh import triangle_area
+from external.fem_solver.mesh import triangle_area
 def find_boundary_nodes(nodes, lx: float, ly: float, tol = 1e-12):
     boundary_nodes = []
 

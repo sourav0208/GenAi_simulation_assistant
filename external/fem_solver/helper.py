@@ -5,9 +5,9 @@ from scipy.interpolate import griddata
 from scipy.sparse import lil_matrix
 from scipy.sparse.linalg import spsolve
 import matplotlib.pyplot as plt
-from mesh import *
-from plots import *
-from boundary_conditions import *
+from external.fem_solver.mesh import *
+from external.fem_solver.plots import *
+from external.fem_solver.boundary_conditions import *
 
 def solve_problem(nx, ny, lx=1.0, ly=1.0, source=1.0, use_sparse=False):
     nodes = generate_nodes(nx,ny,lx=lx,ly=ly)

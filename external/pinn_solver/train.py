@@ -3,9 +3,9 @@ import torch
 import time
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-from model import PINN
-from data import sample_boundary_points, sample_interior_points
-from losses import  pde_loss, boundary_loss, compute_pde_residual
+from external.pinn_solver.model import PINN
+from external.pinn_solver.data import sample_boundary_points, sample_interior_points
+from external.pinn_solver.losses import  pde_loss, boundary_loss, compute_pde_residual
 
 def total_loss_fn(model, interior_points, boundary_points, lambda_bc):
     loss_pde = pde_loss(model, interior_points)

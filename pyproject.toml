@@ -1,2 +1,10 @@
-[tool.pytest.ini_options]
-pythonpath = ["."]
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GenAi_simulation_assistant"
+version = "0.1.0"
+
+[tool.setuptools.packages.find]
+where = ["src"]
