@@ -1,6 +1,6 @@
 import time
 import numpy as np
-from external.helper import solve_problem
+from external.fem_solver.helper import solve_problem
 def run_fem_simulation(nx:int, ny:int, lx:float, ly:float, source:float, matrix_type: str) -> dict:
     if matrix_type not in {"dense", "sparse"}:
         raise ValueError(f"Unsupported FEM matrix_type: {matrix_type}")
