@@ -3,6 +3,7 @@ sys.path.append(rf"C:\SOURAV\GenAi_simulation_assistant\src")
 from src.parsing.command_parser import parse_simulation_command
 from src.runners.simulation_runner import run_simulation
 from src.parsing.ollama_parser import parse_simulation_command_llm
+from src.reporting.result_logger import save_run
 
 def main():
     command = input("Enter simulation command:")
@@ -11,6 +12,7 @@ def main():
     print(config)
 
     results = run_simulation(config=config)
+    save_run(config, results)
     print("\n Simulation results:")
     print(results)
 
