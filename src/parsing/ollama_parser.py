@@ -9,6 +9,23 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 
 MODEL = "qwen2.5:3b"
 
+def apply_default_values(config):
+
+
+    if config.generate_plot is None:
+        config.generate_plot = True
+
+    if config.generate_report is None:
+        config.generate_report = True
+
+    if config.matrix_type is None:
+        config.matrix_type = "sparse"
+
+    if config.compare_dense_sparse is None:
+        config.compare_dense_sparse = False
+
+    return config
+
 def parse_simulation_command_llm(command: str) -> SimulationConfig:
 
     prompt = f""" 
@@ -72,8 +89,12 @@ Return JSON only
         text = response.json()["response"].strip()
 
         parsed = json.loads(text)
-
+        print("LLM raw parsed JSON:", parsed)
         config = SimulationConfig(**parsed)
+        config = apply_default_values(config)
+        config = apply_command_overrides(command, config)
+        print("config after override:", config)
+
 
         validate_config(config=config)
 
@@ -84,3 +105,39 @@ Return JSON only
         print(e)
 
         return parse_simulation_command(command)
+    
+def normalize_command_text(command: str) -> str:
+    cmd = command.lower()
+
+    replacements = {
+        "don't": "do not",
+        "dont": "do not",
+        "would not like": "do not",
+        "i don't like": "do not",
+        "i do not want": "do not",
+        "please don't": "do not",
+        "without": "no",
+        "skip": "no",
+        "disable": "no"
+    }
+
+    for key, value in replacements.items():
+        cmd = cmd.replace(key, value)
+
+    return cmd
+    
+
+def apply_command_overrides(command: str, config: SimulationConfig) -> SimulationConfig:
+
+    cmd = command.lower()
+    cmd = normalize_command_text(cmd)
+
+    if "report" in cmd and "no" in cmd:
+        config.generate_report = False
+
+    if "plot" in cmd and "no" in cmd:
+        config.generate_plot = False
+
+    return config
+
+  
