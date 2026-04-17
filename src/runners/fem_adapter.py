@@ -9,7 +9,7 @@ def run_fem_simulation(nx:int, ny:int, lx:float, ly:float, source:float, matrix_
 
     start_time = time.perf_counter()#
 
-    fem_output = solve_problem(
+    nodes, elements, K, f, u = solve_problem(
         nx=nx,
         ny=ny,
         lx=1.0,
@@ -28,7 +28,16 @@ def run_fem_simulation(nx:int, ny:int, lx:float, ly:float, source:float, matrix_
         "use_sparse" : use_sparse,
         "status": "completed",
         "runtime_seconds": runtime_seconds,
-        "raw_output": fem_output
+        "num_elements": len(elements),
+        "stiffness_shape": K.shape,
+        "load_shape": f.shape,
+        "solution_shape": u.shape,
+        "solution_min": float(np.min(u)),
+        "solution_max": float(np.max(u)),
+        "solution_l2_norm": float(np.linalg.norm(u)),
+        "nodes": nodes,
+        "elements": elements,
+        "solution": u
     }
 
     return result
