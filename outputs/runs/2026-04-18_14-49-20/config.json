@@ -1,0 +1,60 @@
+{
+    "workflow": "fem_dense_sparse_comparison",
+    "status": "completed",
+    "results": {
+        "dense": {
+            "solver": "fem",
+            "nx": 100,
+            "ny": 100,
+            "matrix_type": "dense",
+            "use_sparse": false,
+            "status": "completed",
+            "runtime_seconds": 4.137554549000015,
+            "num_elements": 19602,
+            "stiffness_shape": [
+                10000,
+                10000
+            ],
+            "load_shape": [
+                10000
+            ],
+            "solution_shape": [
+                10000
+            ],
+            "solution_min": -5.204170427930417e-18,
+            "solution_max": 0.07365267882852342,
+            "solution_l2_norm": 4.08454140432301,
+            "nodes": "[[0.         0.        ]\n [0.01010101 0.        ]\n [0.02020202 0.        ]\n ...\n [0.97979798 1.        ]\n [0.98989899 1.        ]\n [1.         1.        ]]",
+            "elements": "[[   0    1  101]\n [   0  101  100]\n [   1    2  102]\n ...\n [9897 9998 9997]\n [9898 9899 9999]\n [9898 9999 9998]]",
+            "solution": "[0. 0. 0. ... 0. 0. 0.]"
+        },
+        "sparse": {
+            "solver": "fem",
+            "nx": 100,
+            "ny": 100,
+            "matrix_type": "sparse",
+            "use_sparse": true,
+            "status": "completed",
+            "runtime_seconds": 0.6930498290000742,
+            "num_elements": 19602,
+            "stiffness_shape": [
+                10000,
+                10000
+            ],
+            "load_shape": [
+                10000
+            ],
+            "solution_shape": [
+                10000
+            ],
+            "solution_min": 0.0,
+            "solution_max": 0.07365267882852461,
+            "solution_l2_norm": 4.084541404323058,
+            "nodes": "[[0.         0.        ]\n [0.01010101 0.        ]\n [0.02020202 0.        ]\n ...\n [0.97979798 1.        ]\n [0.98989899 1.        ]\n [1.         1.        ]]",
+            "elements": "[[   0    1  101]\n [   0  101  100]\n [   1    2  102]\n ...\n [9897 9998 9997]\n [9898 9899 9999]\n [9898 9999 9998]]",
+            "solution": "[0. 0. 0. ... 0. 0. 0.]"
+        }
+    },
+    "generate_plot": true,
+    "generate_report": true
+}

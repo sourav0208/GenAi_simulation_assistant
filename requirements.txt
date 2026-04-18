@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+numpy
+matplotlib
+scipy
+torch
+tqdm

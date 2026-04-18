@@ -1,6 +1,6 @@
-from config.schema import SimulationConfig
-from runners.fem_adapter import run_fem_simulation
-from runners.pinn_adapter import run_pinn_simulation
+from src.config.schema import SimulationConfig
+from src.runners.fem_adapter import run_fem_simulation
+from src.runners.pinn_adapter import run_pinn_simulation
 
 def run_simulation(config: SimulationConfig) -> dict:
     if config.solver == "fem":

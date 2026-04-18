@@ -1,3 +1,4 @@
+import os
 import json
 import requests
 
@@ -5,9 +6,10 @@ from src.config.schema import SimulationConfig
 from src.parsing.command_parser import parse_simulation_command
 from src.parsing.command_parser import validate_config
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
 
-MODEL = "qwen2.5:3b"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+
+MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:3b")
 
 def apply_default_values(config):
 
