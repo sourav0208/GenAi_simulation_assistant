@@ -1,0 +1,32 @@
+{
+    "workflow": "fem_single_run",
+    "status": "completed",
+    "results": {
+        "solver": "fem",
+        "nx": 50,
+        "ny": 60,
+        "matrix_type": "sparse",
+        "use_sparse": true,
+        "status": "completed",
+        "runtime_seconds": 0.28493280010297894,
+        "num_elements": 5782,
+        "stiffness_shape": [
+            3000,
+            3000
+        ],
+        "load_shape": [
+            3000
+        ],
+        "solution_shape": [
+            3000
+        ],
+        "solution_min": 0.0,
+        "solution_max": 0.0736069671549107,
+        "solution_l2_norm": 2.2179001285472064,
+        "nodes": "[[0.         0.        ]\n [0.02040816 0.        ]\n [0.04081633 0.        ]\n ...\n [0.95918367 1.        ]\n [0.97959184 1.        ]\n [1.         1.        ]]",
+        "elements": "[[   0    1   51]\n [   0   51   50]\n [   1    2   52]\n ...\n [2947 2998 2997]\n [2948 2949 2999]\n [2948 2999 2998]]",
+        "solution": "[0. 0. 0. ... 0. 0. 0.]"
+    },
+    "generate_plot": false,
+    "generate_report": true
+}

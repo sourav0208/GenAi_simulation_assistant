@@ -118,7 +118,12 @@ def normalize_command_text(command: str) -> str:
         "please don't": "do not",
         "without": "no",
         "skip": "no",
-        "disable": "no"
+        "disable": "no",
+        "nad": "and",
+        "dont": "do not",
+        "don't": "do not",
+        "omit": "skip",
+        "disable": "skip",
     }
 
     for key, value in replacements.items():
@@ -132,11 +137,36 @@ def apply_command_overrides(command: str, config: SimulationConfig) -> Simulatio
     cmd = command.lower()
     cmd = normalize_command_text(cmd)
 
-    if "report" in cmd and "no" in cmd:
-        config.generate_report = False
+    # REPORT
+    if "report" in cmd:
+        if (
+            "skip report" in cmd
+            or "no report" in cmd
+            or "without report" in cmd
+            or "without generate report" in cmd
+        ):
+            config.generate_report = False
+        elif (
+            "generate report" in cmd
+            or "do not skip report" in cmd
+        ):
+            config.generate_report = True
 
-    if "plot" in cmd and "no" in cmd:
-        config.generate_plot = False
+    # PLOT
+    if "plot" in cmd:
+        if (
+            "skip plot" in cmd
+            or "no plot" in cmd
+            or "without plot" in cmd
+            or "without generate plot" in cmd
+        ):
+            config.generate_plot = False
+        elif (
+            "generate plot" in cmd
+            or "do not skip plot" in cmd
+        ):
+            config.generate_plot = True
+
 
     return config
 
