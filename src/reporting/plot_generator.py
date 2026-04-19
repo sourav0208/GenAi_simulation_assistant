@@ -10,7 +10,7 @@ def save_fem_solution_plot(result: dict, run_dir: str) -> str | None:
     if result.get("workflow") == "fem_single_run":
         return _save_fem_single_plot(result, run_dir)
     
-    if result.get("workflow") != "fem_single_run":
+    if result.get("workflow") == "fem_dense_sparse_comparison":
         return _save_fem_comparison_plots(result, run_dir)
     
     return None

@@ -67,6 +67,9 @@ Important interpretation rules:
 - "dense" means matrix_type = "dense"
 - "sparse" means matrix_type = "sparse"
 - "compare dense and sparse" means compare_dense_sparse = true and matrix_type = "both"
+- matrix_type must be exactly one of: "dense", "sparse" , "both"
+- Never resturn values like: -"dense or sparse", "either dense or sparse"
+- for PINN, use "sparse" unless the user explicitly asks for dense/sparse comparison.
 
 User command:
 {command}
@@ -92,8 +95,10 @@ Return JSON only
 
         parsed = json.loads(text)
         print("LLM raw parsed JSON:", parsed)
+        parsed = sanitize_llm_output(parsed)
+        print("parsed JSON after sanitise_llm_output:", parsed)
+
         config = SimulationConfig(**parsed)
-        config = apply_default_values(config)
         config = apply_command_overrides(command, config)
         print("config after override:", config)
 
@@ -172,4 +177,30 @@ def apply_command_overrides(command: str, config: SimulationConfig) -> Simulatio
 
     return config
 
+def sanitize_llm_output(parsed: dict) -> dict:
+    valid_matrix_types = {"dense", "sparse", "both"}
+
+    matrix_type = parsed.get("matrix_type")
+
+    if matrix_type not in valid_matrix_types:
+        
+        parsed["matrix_type"] = "sparse"
+
+    if "generate_plot" not in parsed:
+        parsed["generate_plot"] = True
+
+    if "generate_report" not in parsed:
+        parsed["generate_report"] = True
+
+    if "compare_dense_sparse" not in parsed:
+        parsed["compare_dense_sparse"] = False
+
+    if "epochs" not in parsed:
+        parsed["epochs"] = None
+
+    if "hidden_dim" not in parsed:
+        parsed["hidden_dim"] = None
+        
+
+    return parsed
   
