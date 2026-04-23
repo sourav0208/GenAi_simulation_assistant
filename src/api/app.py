@@ -10,6 +10,7 @@ from src.reporting.result_logger import save_run, _make_json_safe
 from src.reporting.plot_generator import save_fem_solution_plot
 from src.reporting.report_generator import generate_markdown_report
 from src.api.response_formatter import format_api_response
+from src.utils.cloud_limits import enforce_cloud_limits
 
 class SimulationRequest(BaseModel):
     command: str
@@ -43,6 +44,7 @@ def run_simulation_endpoint(payload: SimulationRequest):
     try:
         command = payload.command
         config = parse_simulation_command_llm(command)
+        config = enforce_cloud_limits(config=config)
         result = run_simulation(config)
 
         run_dir = save_run(config, result)
