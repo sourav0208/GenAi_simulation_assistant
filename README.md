@@ -32,3 +32,19 @@ simulate a fem with 50x50 and generate plot and report.
 ```
 
 ------------------------------------------------------------------------
+
+# Example Outputs
+
+## FEM Solution
+
+![FEM Solution](outputs\figures\solution.png)
+
+## Runtime Comparison
+
+![Runtime Comparison](outputs\figures\comparison_runtime.png)
+
+## PINN Loss History
+
+![PINN Loss](outputs/figures/loss_history.png)
+
+------------------------------------------------------------------------
