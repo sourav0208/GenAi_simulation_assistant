@@ -1,0 +1,6 @@
+services:
+  - tyoe: web
+    name: genai-simulation-assistant
+    runtime: docker
+    plan: free
+    autoDeploy: true

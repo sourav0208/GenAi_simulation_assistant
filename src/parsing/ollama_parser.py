@@ -29,6 +29,8 @@ def apply_default_values(config):
     return config
 
 def parse_simulation_command_llm(command: str) -> SimulationConfig:
+    if not OLLAMA_URL:
+        return parse_simulation_command
 
     prompt = f""" 
 You are a simulation command parser.
