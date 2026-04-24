@@ -48,3 +48,33 @@ simulate a fem with 50x50 and generate plot and report.
 ![PINN Loss](outputs/figures/loss_history.png)
 
 ------------------------------------------------------------------------
+
+# Project Structure
+
+``` text
+GenAi_simulation_assistant/
+│
+├── src/
+│   ├── api/
+│   ├── parsing/
+│   ├── runners/
+│   ├── reporting/
+│   └── config/
+    └── utils/
+│
+├── outputs/
+│   ├── runs/
+│   ├── checkpoints/
+│   └── figures/
+│
+├── Dockerfile
+├── requirements.txt
+├── README.md
+└── .github/
+    └── workflows/
+        └── ci.yml
+│
+├── render.yaml
+```
+
+------------------------------------------------------------------------
