@@ -78,3 +78,65 @@ GenAi_simulation_assistant/
 ```
 
 ------------------------------------------------------------------------
+
+## Deployment
+
+This project is deployed as a live cloud service using automated
+Continuous Integration (CI) and Continuous Deployment (CD).
+
+Every push to the `main` branch:
+
+-   runs automated checks
+-   builds a Docker image
+-   deploys the service to the cloud
+
+------------------------------------------------------------------------
+
+## Live Cloud Demo
+
+Base URL:
+
+https://genai-simulation-assistant.onrender.com
+
+Interactive API documentation:
+
+https://genai-simulation-assistant.onrender.com/docs
+
+Example request:
+
+``` bash
+curl -X POST https://genai-simulation-assistant.onrender.com/run-simulation -H "Content-Type: application/json" -d '{
+  "command": "run a fem simulation with 20x20"
+}'
+```
+
+------------------------------------------------------------------------
+
+## Continuous Integration (CI)
+
+This project uses GitHub Actions to automatically validate the codebase.
+
+The CI pipeline performs:
+
+-   dependency installation
+-   Python syntax checks
+-   linting
+-   Docker image build verification
+
+------------------------------------------------------------------------
+
+## Continuous Deployment (CD)
+
+Deployment workflow:
+
+Developer Push\
+↓\
+GitHub Actions\
+↓\
+Docker Build\
+↓\
+Render Cloud Deployment\
+↓\
+Live API Service
+
+------------------------------------------------------------------------
