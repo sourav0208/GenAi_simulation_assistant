@@ -140,3 +140,44 @@ Render Cloud Deployment\
 Live API Service
 
 ------------------------------------------------------------------------
+
+## Docker Containerization
+
+The entire system runs inside a Docker container.
+
+Benefits:
+
+-   consistent runtime environment
+-   reproducible builds
+-   platform independence
+-   simplified deployment
+
+------------------------------------------------------------------------
+
+## System Architecture
+
+User\
+↓\
+HTTP Request\
+↓\
+FastAPI Service\
+↓\
+Command Parser\
+↓\
+Simulation Runner\
+↓\
+FEM / PINN Solver\
+↓\
+Results + Artifacts
+
+------------------------------------------------------------------------
+
+## Cloud Infrastructure
+
+This service is deployed using:
+
+-   Render cloud platform
+-   Docker container runtime
+-   GitHub-based deployment automation
+
+------------------------------------------------------------------------
