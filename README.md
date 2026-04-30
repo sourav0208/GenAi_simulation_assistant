@@ -181,3 +181,68 @@ This service is deployed using:
 -   GitHub-based deployment automation
 
 ------------------------------------------------------------------------
+
+## Result Storage
+
+Simulation results are generated dynamically during execution.
+
+Typical output directory:
+
+outputs/runs/`<timestamp>`{=html}/
+
+Artifacts may include:
+
+-   report.md
+-   plots
+-   figures
+-   logs
+-   model checkpoints
+
+Note:
+
+The public deployment uses a temporary filesystem.\
+Large experiments should be executed locally for persistent storage.
+
+------------------------------------------------------------------------
+
+## API Usage
+
+Primary endpoint:
+
+POST /run-simulation
+
+Example request:
+
+{ "command": "run a pinn simulation with 20x20 and generate report" }
+
+Example response:
+
+{ "status": "completed", "run_dir": "outputs/runs/`<timestamp>`{=html}"
+}
+
+------------------------------------------------------------------------
+
+## Performance Considerations
+
+Recommended limits for cloud execution:
+
+-   grid size ≤ 20x20\
+-   epochs ≤ 500\
+-   hidden_dim ≤ 32
+
+For large simulations:
+
+Run locally using Docker.
+
+------------------------------------------------------------------------
+
+## Testing and Validation
+
+The system includes automated validation through:
+
+-   CI pipeline checks
+-   numerical verification
+-   FEM reference comparison
+-   reproducible simulation runs
+
+------------------------------------------------------------------------
