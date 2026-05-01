@@ -246,3 +246,44 @@ The system includes automated validation through:
 -   reproducible simulation runs
 
 ------------------------------------------------------------------------
+## Reproducibility
+
+This project emphasizes reproducible scientific computing.
+
+Reproducibility is achieved through:
+
+-   deterministic configuration
+-   version-controlled code
+-   containerized runtime
+-   automated deployment pipeline
+
+------------------------------------------------------------------------
+
+## Engineering Highlights
+
+This project demonstrates:
+
+-   finite element simulation
+-   physics-informed neural networks
+-   scientific computing workflows
+-   REST API design
+-   Docker containerization
+-   CI/CD automation
+-   cloud deployment
+-   production system architecture
+
+------------------------------------------------------------------------
+
+## Technologies Used
+
+-   Python\
+-   PyTorch\
+-   NumPy\
+-   SciPy\
+-   Matplotlib\
+-   FastAPI\
+-   Docker\
+-   GitHub Actions\
+-   Render
+
+------------------------------------------------------------------------
