@@ -287,3 +287,21 @@ This project demonstrates:
 -   Render
 
 ------------------------------------------------------------------------
+
+## Future Extensions
+
+Possible next development directions:
+
+-   asynchronous job execution
+-   persistent cloud storage
+-   GPU deployment
+-   distributed simulation
+-   adaptive mesh refinement
+-   multi-physics simulation
+-   web dashboard interface
+
+------------------------------------------------------------------------
+
+## License
+
+This project is released under the MIT License.
